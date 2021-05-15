@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mariadb:
+    image: mariadb:latest
+    ports:
+      - "3306:3306"
+    #environment:
+    env_file:
+        ./db.env
+
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
+  matomo:
+    image: matomo
+    ports:
+      - "8080:80"
+    #environment:
+    env_file:
+        ./db.env
+    volumes:
+      - ./matomo_data:/var/www/html
+    depends_on:
+      - mariadb
+volumes:
+  mariadb_data:
+    driver: local
+  matomo_data:
+    driver: local

@@ -1,6 +1,12 @@
 # ignore mac os tempfile
 .DS_Store
 
+# ignore database content
+mariadb_data/
+
+# ignore matomo data
+matomo_data/
+
 # ignore everything in the root except the "wp-content" directory.
 !wp-content/
 
