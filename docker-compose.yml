@@ -3,6 +3,7 @@ services:
   mariadb:
     image: mariadb:latest
     command: --max_allowed_packet=67108864      # Set max_allowed_packet to 64M
+    entrypoint: mysqld_safe --skip-grant-tables --user=mysql
     ports:
       - "3306:3306"
     #environment:
