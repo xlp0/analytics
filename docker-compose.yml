@@ -2,6 +2,7 @@ version: "3"
 services:
   mariadb:
     image: mariadb:latest
+    command: --max_allowed_packet=67108864      # Set max_allowed_packet to 256M (or any other value)
     ports:
       - "3306:3306"
     #environment:
